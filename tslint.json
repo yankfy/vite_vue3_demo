@@ -1,0 +1,41 @@
+{
+  "defaultSeverity": "error",
+  "rulesDirectory": [
+    "src/",
+    "components.d.ts",
+    "auto-imports.d.ts"
+  ],
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {
+    "max-line-length": {
+      "options": [
+        120
+      ]
+    }
+  },
+  "rules": {
+    "max-line-length": {
+      "options": [
+        120
+      ]
+    },
+    "new-parens": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-conditional-assignment": true,
+    "no-consecutive-blank-lines": false,
+    "no-console": {
+      "severity": "warning",
+      "options": [
+        "debug",
+        "info",
+        "log",
+        "time",
+        "timeEnd",
+        "trace"
+      ]
+    }
+  }
+}
