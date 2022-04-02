@@ -19,9 +19,9 @@
     ],
     "types": [
       "element-plus/global",
-      "vite/client",
-      "vite-plugin-svg-icons/client",
-      "dayjs/plugin/isLeapYear"
+      "vite/client"
+      //      "vite-plugin-svg-icons/client",
+      //      "dayjs/plugin/isLeapYear"
     ],
     "paths": {
       /* 设置alias */
@@ -32,6 +32,7 @@
         "types/*"
       ]
     },
+    "baseUrl": "./",
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Projects */
