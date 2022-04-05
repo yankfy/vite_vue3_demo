@@ -6,6 +6,7 @@ module.exports = {
     ],
     rules: {
         'vue/no-unused-vars': 'error',
-        'vue/no-multiple-template-root': 'off'
+        'vue/no-multiple-template-root': 'off',
+        "no-unused-expressions": "off"
     }
 }
