@@ -8,5 +8,5 @@ module.exports = {
         'vue/no-unused-vars': 'error',
         'vue/no-multiple-template-root': 'off',
         "no-unused-expressions": "off"
-    }
+    },
 }
