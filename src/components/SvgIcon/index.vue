@@ -22,7 +22,8 @@ import { isExternal } from "@/utils/validate";
 
 const props = withDefaults(defineProps<{ prefix?: string, name: string, color?: string, className?: string }>(), {
   prefix: "icon",
-  color: "#333333"
+  color: "#333333",
+  className: '',
 })
 const isExt = computed(() => isExternal(props.name || ''))
 const symbolId = computed(() => `#${props.prefix}-${props.name}`)

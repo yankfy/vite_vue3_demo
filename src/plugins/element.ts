@@ -1,5 +1,13 @@
 import { App } from 'vue'
-import ElementPlus, { ElButton, ElMessage, ElMessageBox, ElNotification } from 'element-plus'
+import ElementPlus, {
+    ElButton,
+    ElMessage,
+    ElMessageBox,
+    ElNotification,
+    ElMenu,
+    ElMenuItem,
+    ElSubMenu
+} from 'element-plus'
 import 'element-plus/dist/index.css'
 // Element Plus 组件内部默认使用英语
 // https://element-plus.gitee.io/zh-CN/guide/i18n.html
@@ -19,7 +27,10 @@ export default (app: App): void => {
         ElButton,
         ElMessage,
         ElNotification,
-        ElMessageBox
+        ElMessageBox,
+        ElMenu,
+        ElSubMenu,
+        ElSubMenu
     ]
 
     components.forEach(component => {
