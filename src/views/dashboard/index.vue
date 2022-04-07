@@ -1,8 +1,9 @@
 <template>
   <div>
     <h1>Dashboard page</h1>
+    缓存测试 <input type="text">
     <svg-icon name="eye" color="blue"></svg-icon>
-    <svg-icon name="eye-open" color="gray" className="custom-class" @click="sayHi"></svg-icon>
+    <svg-icon class-name="custom-class" color="gray" name="eye-open" @click="sayHi"></svg-icon>
   </div>
 </template>
 
