@@ -33,6 +33,8 @@
       ]
     },
     "baseUrl": "./",
+    "suppressImplicitAnyIndexErrors": true,
+    // 去掉可能为any类型的错误
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Projects */

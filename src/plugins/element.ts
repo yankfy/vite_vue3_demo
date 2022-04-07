@@ -1,13 +1,6 @@
 import { App } from 'vue'
-import ElementPlus, {
-    ElButton,
-    ElMessage,
-    ElMessageBox,
-    ElNotification,
-    ElMenu,
-    ElMenuItem,
-    ElSubMenu
-} from 'element-plus'
+import ElementPlus, { ElButton, ElIcon, ElMenu, ElMessage, ElMessageBox, ElNotification, ElSubMenu } from 'element-plus'
+import * as ElIconModules from '@element-plus/icons-vue'
 import 'element-plus/dist/index.css'
 // Element Plus 组件内部默认使用英语
 // https://element-plus.gitee.io/zh-CN/guide/i18n.html
@@ -30,12 +23,21 @@ export default (app: App): void => {
         ElMessageBox,
         ElMenu,
         ElSubMenu,
-        ElSubMenu
+        ElSubMenu,
+        ElIcon
     ]
 
     components.forEach(component => {
         app.use(component)
     })
+
+    for (const iconName in ElIconModules) {
+        // 判断对象有没有属性
+        if (Reflect.has(ElIconModules, iconName)) {
+            const item = ElIconModules[iconName]
+            app.component(iconName, item)
+        }
+    }
 
     // Vue.prototype 替换为 config.globalProperties
     // 文档说明 https://v3.cn.vuejs.org/guide/migration/global-api.html#vue-prototype-%E6%9B%BF%E6%8D%A2%E4%B8%BA-config-globalproperties

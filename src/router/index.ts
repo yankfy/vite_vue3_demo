@@ -102,7 +102,7 @@ export const constantRoutes: Array<RouteRecordRawMeta> = [
                 component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/index.vue'),
                 meta: {
                     title: 'Dashboard',
-                    icon: 'el-icon-eleme',
+                    icon: 'el-opportunity',
                 }
             }
         ]

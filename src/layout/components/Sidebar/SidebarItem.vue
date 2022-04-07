@@ -9,7 +9,11 @@
         <el-menu-item
             :index="resolvePath(theOnlyOneChildRoute?.path)"
         >
-          <i v-if="icon && icon?.includes('el-icon')" :class="icon"></i>
+          <!--<i v-if="icon && icon?.includes('el-icon')" :class="icon"></i>-->
+          <el-icon v-if="icon && icon?.includes('el-')" color="#FF9EFC" class="no-inherit">
+            <!--<component :is="icon.slice(3)"/>-->
+            <opportunity/>
+          </el-icon>
           <svg-icon
               v-else-if="icon"
               :name="theOnlyOneChildRoute?.meta.icon"
@@ -26,12 +30,15 @@
         v-else
         :index="resolvePath(item.path)"
         popper-append-to-body>
+      <el-icon v-if="icon && icon?.includes('el-')">
+        <component :is="icon.slice(3)"/>
+      </el-icon>
+      <svg-icon
+          v-if="item.meta.icon"
+          :name="item.meta.icon"
+          class="menu-icon"
+      ></svg-icon>
       <template #title>
-        <svg-icon
-            v-if="item.meta.icon"
-            :name="item.meta.icon"
-            class="menu-icon"
-        ></svg-icon>
         <span class="submenu-title">{{ item.meta.title }}</span>
       </template>
       <sidebar-item
