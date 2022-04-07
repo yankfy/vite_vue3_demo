@@ -9,8 +9,9 @@
         <el-menu-item
             :index="resolvePath(theOnlyOneChildRoute?.path)"
         >
+          <i v-if="icon && icon?.includes('el-icon')" :class="icon"></i>
           <svg-icon
-              v-if="icon"
+              v-else-if="icon"
               :name="theOnlyOneChildRoute?.meta.icon"
               class-name="menu-icon"
           ></svg-icon>
@@ -96,7 +97,7 @@ const theOnlyOneChildRoute = computed(() => {
 // menu icon
 const icon = computed(() => {
   // 子路由 如果没有icon就用父路由的 // 获取computed 后的值 也使用.value
-  return theOnlyOneChildRoute.value?.meta?.icon || (item!.meta && item!.meta.icon)
+  return (theOnlyOneChildRoute.value?.meta?.icon || (item!.meta && item!.meta.icon)) as string
 })
 
 // 利用path.resolve 根据父路径+子路径 解析成正确路径 子路径可能是相对的

@@ -1,8 +1,10 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory, RouteMeta, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/index.vue'
 
+export type RouteRecordRawMeta = RouteRecordRaw & { meta?: RouteMeta }
+
 // 看作是异步获取路由
-export const asyncRoutes: Array<RouteRecordRaw> = [
+export const asyncRoutes: Array<RouteRecordRawMeta> = [
     {
         path: '/documentation',
         component: Layout, // 布局组件作为一级路由
@@ -88,7 +90,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
 ]
 
 
-export const constantRoutes: Array<RouteRecordRaw> = [
+export const constantRoutes: Array<RouteRecordRawMeta> = [
     {
         path: '/',
         component: Layout,
@@ -100,7 +102,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
                 component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/index.vue'),
                 meta: {
                     title: 'Dashboard',
-                    icon: 'dashboard',
+                    icon: 'el-icon-eleme',
                 }
             }
         ]
