@@ -1,19 +1,21 @@
 <template>
-  <div v-if="!item.meta || item.meta.hidden" class="sidebar-item-container">
+  <div v-if="!item.meta || item.meta?.hidden" class="sidebar-item-container">
     <!-- 一个路由下只有一个子路由 -->
-    <template v-if="theOnlyOneChildRoute && (!theOnlyOneChildRoute.children || theOnlyOneChildRoute.noShowingChildren)">
-      <sidebar-item-link v-if="theOnlyOneChildRoute.meta"
-                         :to="resolvePath(theOnlyOneChildRoute.path)">
+    <template
+        v-if="theOnlyOneChildRoute && (!theOnlyOneChildRoute?.children || theOnlyOneChildRoute?.noShowingChildren)">
+      <sidebar-item-link
+          v-if="theOnlyOneChildRoute?.meta"
+          :to="resolvePath(theOnlyOneChildRoute?.path)">
         <el-menu-item
-            :index="resolvePath(theOnlyOneChildRoute.path)"
+            :index="resolvePath(theOnlyOneChildRoute?.path)"
         >
           <svg-icon
               v-if="icon"
-              :name="theOnlyOneChildRoute.meta.icon"
-              className="menu-icon"
+              :name="theOnlyOneChildRoute?.meta.icon"
+              class-name="menu-icon"
           ></svg-icon>
           <template #title>
-            <span class="submenu-title">{{ theOnlyOneChildRoute.meta.title }}</span>
+            <span class="submenu-title">{{ theOnlyOneChildRoute?.meta.title }}</span>
           </template>
         </el-menu-item>
       </sidebar-item-link>
@@ -44,14 +46,14 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, PropType } from "vue";
+import { computed, PropType, reactive } from "vue";
 import { RouteRecordRaw } from "vue-router";
 import path from 'path-browserify'
 import SidebarItemLink from "@/layout/components/Sidebar/SidebarItemLink.vue";
 import { isExternal } from "@/utils/validate";
 
 const props = defineProps({ item: Object as PropType<RouteRecordRaw>, basePath: String });
-const { item } = props;
+const { item } = reactive(props);
 
 // 子路由数量
 const showingChildNumber = computed(() => {
