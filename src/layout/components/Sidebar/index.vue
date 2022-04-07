@@ -1,52 +1,48 @@
 <template>
   <div>
     <!-- 测试展开收起 -->
-    <div class="is-collapse" @click="isCollapse=!isCollapse">
-      <svg-icon name="eye-open" v-if="isCollapse" color="#fdfdff"></svg-icon>
-      <svg-icon name="eye" v-if="!isCollapse" color="#fdfdff"></svg-icon>
+    <div class="is-collapse" @click="isCollapse = !isCollapse">
+      <svg-icon v-if="isCollapse" color="#fdfdff" name="eye-open"></svg-icon>
+      <svg-icon v-if="!isCollapse" color="#fdfdff" name="eye"></svg-icon>
     </div>
 
     <el-menu
-        class="sidebar-container-menu"
-        mode="vertical"
-        :default-active="activeMenu"
-        :background-color="scssVariables.menuBg"
-        :text-color="scssVariables.menuText"
         :active-text-color="scssVariables.menuActiveText"
+        :background-color="scssVariables.menuBg"
         :collapse="isCollapse"
         :collapse-transition="true"
+        :default-active="activeMenu"
+        :text-color="scssVariables.menuText"
+        class="sidebar-container-menu"
+        mode="vertical"
     >
-      <sidebar-item
-          v-for="route in menuRoutes"
-          :key="route.path"
-          :base-path="route.path"
-          :item="route">
+      <sidebar-item v-for="routers in menuRoutes" :key="routers.path" :base-path="routers.path" :item="routers">
       </sidebar-item>
     </el-menu>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { computed, ref } from "vue";
+import { useRoute } from "vue-router";
 import { routes } from "@/router";
 // 导入scss变量在组件中使用
-import variables from '@/styles/variables.scss'
+import variables from "@/styles/variables.scss";
 // el-menu-item封装
-import SidebarItem from './SidebarItem.vue'
+import SidebarItem from "./SidebarItem.vue";
 
-const route = useRoute()
+const route = useRoute();
 // 根据路由路径 对应 当前激活的菜单 页面刷新后 激活当前路由匹配的菜单
 const activeMenu = computed(() => {
-  const { path } = route
-  return path
-})
+  const { path } = route;
+  return path;
+});
 // scss变量 不用toRefs原因 缺点在这里 variables里面变量属性感觉来源不明确
-const scssVariables = computed(() => variables)
+const scssVariables = computed(() => variables);
 // 菜单展开收起状态 后面会放store里
-const isCollapse = ref(true)
+const isCollapse = ref(true);
 // 渲染路由
-const menuRoutes = computed(() => routes)
+const menuRoutes = computed(() => routes);
 // 推荐ref 和 toRefs 区别 https://dujian.blog.csdn.net/article/details/115840840
 </script>
 

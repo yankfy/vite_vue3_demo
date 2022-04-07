@@ -8,17 +8,19 @@
         <div class="navbar">navbar</div>
         <div class="tags-view">tagsview</div>
       </div>
-      <div class="app-main">
-        <h2>app main</h2>
-        <router-view></router-view>
-      </div>
+      <!--<div class="app-main">-->
+      <!--  <h2>app main</h2>-->
+      <!--  <router-view></router-view>-->
+      <!--</div>-->
+      <!-- AppMain router-view 缓存路由-->
+      <app-main/>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import Sidebar from './components/Sidebar/index.vue'
-</script>
+import AppMain from './components/appMain.vue'</script>
 
 <style lang="scss" scoped>
 .app-wrapper {
