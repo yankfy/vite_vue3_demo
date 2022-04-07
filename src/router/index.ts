@@ -57,7 +57,8 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
                 component: () => import(/* webpackChunkName: "role" */ '@/views/system/role.vue'),
                 meta: {
                     title: 'Role Management',
-                    icon: 'list'
+                    icon: 'list',
+                    hidden: true, // 菜单栏不显示
                 }
             },
             {
@@ -65,7 +66,21 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
                 component: () => import(/* webpackChunkName: "user" */ '@/views/system/user.vue'),
                 meta: {
                     title: 'User Management',
-                    icon: 'list'
+                    icon: 'list',
+                }
+            }
+        ]
+    },
+    { // 外链路由
+        path: '/external-link',
+        component: Layout,
+        children: [
+            {
+                path: 'https://www.baidu.com/',
+                redirect: '/',
+                meta: {
+                    title: 'External Link',
+                    icon: 'link'
                 }
             }
         ]
@@ -84,7 +99,8 @@ export const constantRoutes: Array<RouteRecordRaw> = [
                 name: 'Dashboard',
                 component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/index.vue'),
                 meta: {
-                    title: 'Dashboard'
+                    title: 'Dashboard',
+                    icon: 'dashboard',
                 }
             }
         ]

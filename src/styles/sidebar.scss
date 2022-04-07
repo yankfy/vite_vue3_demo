@@ -4,10 +4,36 @@
     //width: $sideBarWidth !important;
     height: 100%;
     background-color: $menuBg;
-    &-menu:not(.el-menu--collapse){
+
+    &-menu:not(.el-menu--collapse) {
       width: $sideBarWidth;
     }
-    .el-menu{
+
+    .el-menu--collapse {
+      // 菜单收起时，隐藏submenu title
+      .submenu-title {
+        display: none;
+      }
+    }
+
+    .el-submenu {
+      .el-menu {
+        .el-menu-item {
+          .submenu-title {
+            display: inline-block;
+            margin-left: 8px;
+          }
+
+          background-color: $subMenuBg;
+
+          &:hover {
+            background-color: $subMenuHover;
+          }
+        }
+      }
+    }
+
+    .el-menu {
       border: none;
     }
   }

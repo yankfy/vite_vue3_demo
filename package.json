@@ -13,6 +13,7 @@
     "dayjs": "^1.11.0",
     "element-plus": "^2.1.7",
     "normalize.css": "^8.0.1",
+    "path-browserify": "^1.0.1",
     "qs": "^6.10.3",
     "sass": "^1.49.11",
     "vue": "^3.2.25",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@types/lodash-es": "*",
+    "@types/path-browserify": "^1.0.0",
     "@vitejs/plugin-vue": "^2.3.0",
     "eslint": "^8.12.0",
     "eslint-plugin-prettier": "^4.0.0",

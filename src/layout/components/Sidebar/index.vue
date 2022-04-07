@@ -1,10 +1,10 @@
 <template>
   <div>
     <!-- 测试展开收起 -->
-    <h8 @click="isCollapse=!isCollapse" class="is-collapse">
+    <div class="is-collapse" @click="isCollapse=!isCollapse">
       <svg-icon name="eye-open" v-if="isCollapse" color="#fdfdff"></svg-icon>
       <svg-icon name="eye" v-if="!isCollapse" color="#fdfdff"></svg-icon>
-    </h8>
+    </div>
 
     <el-menu
         class="sidebar-container-menu"
@@ -16,7 +16,12 @@
         :collapse="isCollapse"
         :collapse-transition="true"
     >
-      <sidebar-item/>
+      <sidebar-item
+          v-for="route in menuRoutes"
+          :key="route.path"
+          :base-path="route.path"
+          :item="route">
+      </sidebar-item>
     </el-menu>
   </div>
 </template>
@@ -24,6 +29,7 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import { routes } from "@/router";
 // 导入scss变量在组件中使用
 import variables from '@/styles/variables.scss'
 // el-menu-item封装
@@ -35,11 +41,13 @@ const activeMenu = computed(() => {
   const { path } = route
   return path
 })
-// scss变量
+// scss变量 不用toRefs原因 缺点在这里 variables里面变量属性感觉来源不明确
 const scssVariables = computed(() => variables)
 // 菜单展开收起状态 后面会放store里
 const isCollapse = ref(true)
-
+// 渲染路由
+const menuRoutes = computed(() => routes)
+// 推荐ref 和 toRefs 区别 https://dujian.blog.csdn.net/article/details/115840840
 </script>
 
 <style lang="scss">
@@ -51,6 +59,7 @@ const isCollapse = ref(true)
   height: 50px;
   background: #023b77;
   cursor: pointer;
+
   .svg-icon {
     color: #fdfdff;
     width: 1.5em;

@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@types/lodash-es': '*'
+  '@types/path-browserify': ^1.0.0
   '@vitejs/plugin-vue': ^2.3.0
   '@vue/runtime-core': ^3.2.31
   axios: ^0.26.1
@@ -12,6 +13,7 @@ specifiers:
   eslint-plugin-vue: ^8.5.0
   fast-glob: ^3.2.11
   normalize.css: ^8.0.1
+  path-browserify: ^1.0.1
   prettier: ^2.6.2
   qs: ^6.10.3
   sass: ^1.49.11
@@ -28,6 +30,7 @@ dependencies:
   dayjs: 1.11.0
   element-plus: 2.1.7_1a412d14def5ff5ca1122000e4bee666
   normalize.css: 8.0.1
+  path-browserify: 1.0.1
   qs: 6.10.3
   sass: 1.49.11
   vue: 3.2.31
@@ -36,6 +39,7 @@ dependencies:
 
 devDependencies:
   '@types/lodash-es': 4.17.6
+  '@types/path-browserify': 1.0.0
   '@vitejs/plugin-vue': 2.3.1_vite@2.9.1+vue@3.2.31
   eslint: 8.12.0
   eslint-plugin-prettier: 4.0.0_eslint@8.12.0+prettier@2.6.2
@@ -146,22 +150,26 @@ packages:
     dev: true
 
   /@types/lodash/4.14.181:
-    resolution: {integrity: sha512-n3tyKthHJbkiWhDZs3DkhkCzt2MexYHXlX0td5iMplyfwketaOeKboEVBqzceH7juqvEg3q5oUoBFxSLu7zFag==}
+    resolution: { integrity: sha512-n3tyKthHJbkiWhDZs3DkhkCzt2MexYHXlX0td5iMplyfwketaOeKboEVBqzceH7juqvEg3q5oUoBFxSLu7zFag== }
     dev: true
 
   /@types/node/17.0.23:
-    resolution: {integrity: sha512-UxDxWn7dl97rKVeVS61vErvw086aCYhDLyvRQZ5Rk65rZKepaFdm53GeqXaKBuOhED4e9uWq34IC3TdSdJJ2Gw==}
+    resolution: { integrity: sha512-UxDxWn7dl97rKVeVS61vErvw086aCYhDLyvRQZ5Rk65rZKepaFdm53GeqXaKBuOhED4e9uWq34IC3TdSdJJ2Gw== }
+    dev: true
+
+  /@types/path-browserify/1.0.0:
+    resolution: { integrity: sha512-XMCcyhSvxcch8b7rZAtFAaierBYdeHXVvg2iYnxOV0MCQHmPuRRmGZPFDRzPayxcGiiSL1Te9UIO+f3cuj0tfw== }
     dev: true
 
   /@types/svgo/2.6.3:
-    resolution: {integrity: sha512-5sP0Xgo0dXppY0tbYF6TevB/1+tzFLuu71XXxC/zGvQAn9PW7y+DwtDO81g0ZUPye00K6tPwtsLDOpARa0mFcA==}
+    resolution: { integrity: sha512-5sP0Xgo0dXppY0tbYF6TevB/1+tzFLuu71XXxC/zGvQAn9PW7y+DwtDO81g0ZUPye00K6tPwtsLDOpARa0mFcA== }
     dependencies:
       '@types/node': 17.0.23
     dev: true
 
   /@vitejs/plugin-vue/2.3.1_vite@2.9.1+vue@3.2.31:
-    resolution: {integrity: sha512-YNzBt8+jt6bSwpt7LP890U1UcTOIZZxfpE5WOJ638PNxSEKOqAi0+FSKS0nVeukfdZ0Ai/H7AFd6k3hayfGZqQ==}
-    engines: {node: '>=12.0.0'}
+    resolution: { integrity: sha512-YNzBt8+jt6bSwpt7LP890U1UcTOIZZxfpE5WOJ638PNxSEKOqAi0+FSKS0nVeukfdZ0Ai/H7AFd6k3hayfGZqQ== }
+    engines: { node: '>=12.0.0' }
     peerDependencies:
       vite: ^2.5.10
       vue: ^3.2.25
@@ -1882,24 +1890,28 @@ packages:
 
   /parent-module/1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
-    engines: {node: '>=6'}
+    engines: { node: '>=6' }
     dependencies:
       callsites: 3.1.0
     dev: true
 
   /pascalcase/0.1.1:
-    resolution: {integrity: sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ=}
-    engines: {node: '>=0.10.0'}
+    resolution: { integrity: sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ= }
+    engines: { node: '>=0.10.0' }
     dev: true
 
+  /path-browserify/1.0.1:
+    resolution: { integrity: sha512-b7uo2UCUOYZcnF/3ID0lulOJi/bafxa1xPe7ZPsammBSpjSWQkjNxlt635YGS2MiR9GjvuXCtz2emr3jbsz98g== }
+    dev: false
+
   /path-is-absolute/1.0.1:
-    resolution: {integrity: sha1-F0uSaHNVNP+8es5r9TpanhtcX18=}
-    engines: {node: '>=0.10.0'}
+    resolution: { integrity: sha1-F0uSaHNVNP+8es5r9TpanhtcX18= }
+    engines: { node: '>=0.10.0' }
     dev: true
 
   /path-key/3.1.1:
-    resolution: {integrity: sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==}
-    engines: {node: '>=8'}
+    resolution: { integrity: sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q== }
+    engines: { node: '>=8' }
     dev: true
 
   /path-parse/1.0.7:
