@@ -2,7 +2,8 @@
   <div v-if="!item.meta?.hidden" class="sidebar-item-container">
     <!-- 一个路由下只有一个子路由 -->
     <template
-        v-if="theOnlyOneChildRoute && (!theOnlyOneChildRoute?.children || theOnlyOneChildRoute?.noShowingChildren)">
+        v-if="theOnlyOneChildRoute && isRenderSingleRoute">
+      <!--v-if="theOnlyOneChildRoute && (!theOnlyOneChildRoute?.children || theOnlyOneChildRoute?.noShowingChildren)">-->
       <sidebar-item-link
           v-if="theOnlyOneChildRoute?.meta"
           :to="resolvePath(theOnlyOneChildRoute?.path)">
@@ -31,8 +32,8 @@
         :index="resolvePath(item.path)"
         popper-append-to-body>
       <template #title>
-        <el-icon v-if="icon && icon?.includes('el-')">
-          <component :is="icon.slice(3)"/>
+        <el-icon v-if="item.meta.icon?.includes('el-')">
+          <component :is="item.meta.icon?.slice(3)"/>
         </el-icon>
         <svg-icon
             v-else-if="item.meta.icon"
@@ -101,6 +102,14 @@ const theOnlyOneChildRoute = computed(() => {
     noShowingChildren: true // 无可渲染children
   }
 })
+
+// 是否有可渲染子路由
+const noShowingChildren = computed(() => showingChildNumber.value === 0)
+
+// 设置alwaysShow : true 可以一直显示根路由
+const alwaysShowRootMenu = computed(() => item!.meta?.alwaysShow);
+// 是否只有一条渲染路由
+const isRenderSingleRoute = computed(() => !alwaysShowRootMenu.value && (!theOnlyOneChildRoute.value?.children || noShowingChildren.value))
 
 // menu icon
 const icon = computed(() => {

@@ -43,7 +43,8 @@ export const asyncRoutes: Array<RouteRecordRawMeta> = [
         redirect: '/system/user',
         meta: {
             title: 'System',
-            icon: 'el-setting'
+            icon: 'el-setting',
+            alwaysShow: true // 根路由始终展示，哪怕只有一个子路由
         },
         children: [
             {
@@ -51,7 +52,8 @@ export const asyncRoutes: Array<RouteRecordRawMeta> = [
                 component: () => import(/* webpackChunkName: "menu" */ '@/views/system/menu.vue'),
                 meta: {
                     title: 'Menu Management',
-                    icon: 'list'
+                    icon: 'list',
+                    hidden: true,
                 }
             },
             {
