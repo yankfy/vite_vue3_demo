@@ -38,7 +38,7 @@ import AppMain from './components/appMain.vue'</script>
 
       .navbar {
         height: 50px;
-        background: #1890ff;
+        //background: #1890ff;
       }
 
       .tags-view {
@@ -50,7 +50,7 @@ import AppMain from './components/appMain.vue'</script>
     .app-main {
       /* 50= navbar  50  如果有tagsview + 34  */
       min-height: calc(100vh - 84px);
-      background: red;
+      background: #fafafa;
     }
   }
 }
