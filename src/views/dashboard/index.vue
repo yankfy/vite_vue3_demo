@@ -13,6 +13,7 @@ import { getCurrentInstance } from "vue";
 const { proxy } = getCurrentInstance()!  // !:变量后使用 ！：表示类型推断排除null、undefined
 
 const sayHi = () => {
+  // router.push('/guide') 测试路由跳转
   proxy?.$message.success("hi svg")
   console.log('hi svg')
 }

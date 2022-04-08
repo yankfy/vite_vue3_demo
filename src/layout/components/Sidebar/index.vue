@@ -15,6 +15,7 @@
         :text-color="scssVariables.menuText"
         class="sidebar-container-menu"
         mode="vertical"
+        @select="handleSelectMenu"
     >
       <sidebar-item v-for="routers in menuRoutes" :key="routers.path" :base-path="routers.path" :item="routers">
       </sidebar-item>
@@ -34,7 +35,11 @@ import SidebarItem from "./SidebarItem.vue";
 const route = useRoute();
 // 根据路由路径 对应 当前激活的菜单 页面刷新后 激活当前路由匹配的菜单
 const activeMenu = computed(() => {
-  const { path } = route;
+  const { path, meta } = route;
+  // 可根据meta.activeMenu 指定，当路由激活时，让哪个菜单高亮
+  if (meta.activeMenu) {
+    return meta.activeMenu
+  }
   return path;
 });
 // scss变量 不用toRefs原因 缺点在这里 variables里面变量属性感觉来源不明确
@@ -44,6 +49,11 @@ const isCollapse = ref(true);
 // 渲染路由
 const menuRoutes = computed(() => routes);
 // 推荐ref 和 toRefs 区别 https://dujian.blog.csdn.net/article/details/115840840
+
+// 菜单选中后的回调
+const handleSelectMenu = (index: string, indexPath: string[]) => {
+  console.log(index, indexPath)
+}
 </script>
 
 <style lang="scss">
