@@ -7,6 +7,10 @@
 
     &-menu:not(.el-menu--collapse) {
       width: $sideBarWidth;
+
+      .submenu-title {
+        display: inline-block;
+      }
     }
 
     .el-menu--collapse {
@@ -19,11 +23,6 @@
     .el-submenu {
       .el-menu {
         .el-menu-item {
-          .submenu-title {
-            display: inline-block;
-            margin-left: 8px;
-          }
-
           background-color: $subMenuBg;
 
           &:hover {

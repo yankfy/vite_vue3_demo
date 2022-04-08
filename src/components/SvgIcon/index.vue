@@ -33,7 +33,7 @@ const handleSvg = (event: events) => {
 }
 // 添加类名 props.className外部传入自定义类名
 const svgClass = computed(() =>
-    props.name ? `svg-icon ${props.className}` : 'svg-icon'
+    props.name ? `el-icon svg-icon ${props.className}` : 'el-icon svg-icon'
 )
 // 如果name是带协议的图标链接 则通过style css属性方式渲染
 const styleExternalIcon = computed(() => ({
