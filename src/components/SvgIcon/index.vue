@@ -22,7 +22,7 @@ import { isExternal } from "@/utils/validate";
 
 const props = withDefaults(defineProps<{ prefix?: string, name: string, color?: string, className?: string }>(), {
   prefix: "icon",
-  color: "#333333",
+  color: "currentColor",
   className: '',
 })
 const isExt = computed(() => isExternal(props.name || ''))

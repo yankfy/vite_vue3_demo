@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!item.meta || item.meta?.hidden" class="sidebar-item-container">
+  <div v-if="!item.meta?.hidden" class="sidebar-item-container">
     <!-- 一个路由下只有一个子路由 -->
     <template
         v-if="theOnlyOneChildRoute && (!theOnlyOneChildRoute?.children || theOnlyOneChildRoute?.noShowingChildren)">
@@ -30,15 +30,15 @@
         v-else
         :index="resolvePath(item.path)"
         popper-append-to-body>
-      <el-icon v-if="icon && icon?.includes('el-')">
-        <component :is="icon.slice(3)"/>
-      </el-icon>
-      <svg-icon
-          v-if="item.meta.icon"
-          :name="item.meta.icon"
-          class="menu-icon"
-      ></svg-icon>
       <template #title>
+        <el-icon v-if="icon && icon?.includes('el-')">
+          <component :is="icon.slice(3)"/>
+        </el-icon>
+        <svg-icon
+            v-else-if="item.meta.icon"
+            :name="item.meta.icon"
+            class="menu-icon"
+        ></svg-icon>
         <span class="submenu-title">{{ item.meta.title }}</span>
       </template>
       <sidebar-item
@@ -62,6 +62,7 @@ import { isExternal } from "@/utils/validate";
 
 const props = defineProps({ item: Object as PropType<RouteRecordRaw>, basePath: String });
 const { item } = reactive(props);
+console.log(item)
 
 // 子路由数量
 const showingChildNumber = computed(() => {

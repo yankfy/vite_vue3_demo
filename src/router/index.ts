@@ -43,7 +43,7 @@ export const asyncRoutes: Array<RouteRecordRawMeta> = [
         redirect: '/system/user',
         meta: {
             title: 'System',
-            icon: 'lock'
+            icon: 'el-setting'
         },
         children: [
             {
