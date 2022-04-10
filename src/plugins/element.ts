@@ -1,5 +1,16 @@
 import { App } from 'vue'
-import ElementPlus, { ElButton, ElIcon, ElMenu, ElMessage, ElMessageBox, ElNotification, ElSubMenu } from 'element-plus'
+import ElementPlus, {
+    ElBreadcrumb,
+    ElBreadcrumbItem,
+    ElButton,
+    ElCol,
+    ElIcon,
+    ElMenu,
+    ElMessage,
+    ElMessageBox,
+    ElNotification,
+    ElSubMenu
+} from 'element-plus'
 import * as ElIconModules from '@element-plus/icons-vue'
 import 'element-plus/dist/index.css'
 // Element Plus 组件内部默认使用英语
@@ -24,7 +35,10 @@ export default (app: App): void => {
         ElMenu,
         ElSubMenu,
         ElSubMenu,
-        ElIcon
+        ElIcon,
+        ElCol,
+        ElBreadcrumb,
+        ElBreadcrumbItem
     ]
 
     components.forEach(component => {

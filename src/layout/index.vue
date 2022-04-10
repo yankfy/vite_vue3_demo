@@ -5,7 +5,9 @@
     </div>
     <div class="main-container">
       <div class="header">
-        <div class="navbar">navbar</div>
+        <div class="navbar">
+          <Breadcrumb style="width: 100%;height: 100%"/>
+        </div>
         <div class="tags-view">tagsview</div>
       </div>
       <!--<div class="app-main">-->
@@ -20,7 +22,10 @@
 
 <script setup lang="ts">
 import Sidebar from './components/Sidebar/index.vue'
-import AppMain from './components/appMain.vue'</script>
+import AppMain from './components/appMain.vue'
+import Breadcrumb from '@/components/Breadcrumb/index.vue'
+
+</script>
 
 <style lang="scss" scoped>
 .app-wrapper {
@@ -34,7 +39,7 @@ import AppMain from './components/appMain.vue'</script>
     flex-direction: column;
 
     .header {
-      background: cyan;
+      //background: cyan;
 
       .navbar {
         height: 50px;
