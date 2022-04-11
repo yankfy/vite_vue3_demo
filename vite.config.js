@@ -15,6 +15,7 @@ export default defineConfig({
     },
     plugins: [
         vue(),
+        // https://juejin.cn/post/7012446423367024676 可以试试 自动引入神器
         createSvgIconsPlugin({
             // 中转路径在你的src里的svg存放文件 : https://github.com/vbenjs/vite-plugin-svg-icons/tree/main#readme
             iconDirs: [ resolve(process.cwd(), 'src/icons') ],
@@ -74,6 +75,7 @@ export default defineConfig({
             },
         },
         assetsDir: mkdirName, // 默认： assets 目录
+        minify: "terser",
         terserOptions: { // 生产环境移除console
             compress: {
                 drop_console: true,
