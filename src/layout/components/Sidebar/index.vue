@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 测试展开收起 -->
-    <div class="is-collapse" @click="isCollapse = !isCollapse">
+    <div class="is-collapse" @click="toggleSidebar">
       <svg-icon v-if="isCollapse" color="#fdfdff" name="eye-open"></svg-icon>
       <svg-icon v-if="!isCollapse" color="#fdfdff" name="eye"></svg-icon>
     </div>
@@ -24,8 +24,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import { useRoute } from "vue-router";
+import { useStore } from "@/store";
 import { routes } from "@/router";
 // 导入scss变量在组件中使用
 import variables from "@/styles/variables.scss";
@@ -33,6 +34,7 @@ import variables from "@/styles/variables.scss";
 import SidebarItem from "./SidebarItem.vue";
 
 const route = useRoute();
+const store = useStore();
 // 根据路由路径 对应 当前激活的菜单 页面刷新后 激活当前路由匹配的菜单
 const activeMenu = computed(() => {
   const { path, meta } = route;
@@ -45,7 +47,10 @@ const activeMenu = computed(() => {
 // scss变量 不用toRefs原因 缺点在这里 variables里面变量属性感觉来源不明确
 const scssVariables = computed(() => variables);
 // 菜单展开收起状态 后面会放store里
-const isCollapse = ref(true);
+const isCollapse = computed(() => store.getters.sidebar.opened);
+const toggleSidebar = () => {
+  store.dispatch('app/toggleSidebar')
+}
 // 渲染路由
 const menuRoutes = computed(() => routes);
 // 推荐ref 和 toRefs 区别 https://dujian.blog.csdn.net/article/details/115840840

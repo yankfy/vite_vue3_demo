@@ -6,7 +6,7 @@
     <div class="main-container">
       <div class="header">
         <div class="navbar">
-          <Breadcrumb style="width: 100%;height: 100%"/>
+          <Navbar/>
         </div>
         <div class="tags-view">tagsview</div>
       </div>
@@ -23,9 +23,7 @@
 <script setup lang="ts">
 import Sidebar from './components/Sidebar/index.vue'
 import AppMain from './components/appMain.vue'
-import Breadcrumb from '@/components/Breadcrumb/index.vue'
-
-</script>
+import Navbar from './components/Navbar/index.vue'</script>
 
 <style lang="scss" scoped>
 .app-wrapper {
@@ -42,6 +40,7 @@ import Breadcrumb from '@/components/Breadcrumb/index.vue'
       //background: cyan;
 
       .navbar {
+        display: flex;
         height: 50px;
         //background: #1890ff;
       }

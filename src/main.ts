@@ -3,7 +3,7 @@ import { createApp } from 'vue'
 // import ElementPlus from 'element-plus'
 import App from './App.vue'
 import router from "@/router";
-import store from '@/store'
+import store, { key } from '@/store'
 // 初始化css，重置css默认样式
 import "normalize.css/normalize.css"
 import 'element-plus/theme-chalk/index.css';
@@ -18,6 +18,6 @@ const app = createApp(App);
 // app.use(ElementPlus)
 app.use(installElementPlus)
 app.use(router)
-app.use(store)
+app.use(store, key)
 app.use(GlobalComponents)
 app.mount('#app')
