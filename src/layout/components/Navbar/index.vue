@@ -1,7 +1,11 @@
 <template>
-  <div class="navbar">
+  <div class="navbar-header">
     <Hamburger @toggleClick="toggleSidebar" :is-active="sidebar.opened"/>
     <Breadcrumb/>
+    <div class="right-menu">
+      <!-- 全屏组件 -->
+      <Screenfull id="screenfull" class="right-menu-item hover-effect"/>
+    </div>
   </div>
 </template>
 
@@ -10,6 +14,7 @@ import { computed } from "vue";
 import Breadcrumb from '@/components/Breadcrumb/index.vue'
 import Hamburger from '@/components/Hamburger/index.vue'
 import { useStore } from "@/store";
+import Screenfull from "@/components/Screenfull/index.vue";
 
 const store = useStore();
 const toggleSidebar = () => {
@@ -20,3 +25,17 @@ const toggleSidebar = () => {
 const sidebar = computed(() => store.getters.sidebar)
 
 </script>
+
+<style lang="scss" scoped>
+.navbar-header {
+    display: flex;
+    width: 100%;
+    .right-menu {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 15px;
+    }
+  }
+</style>
