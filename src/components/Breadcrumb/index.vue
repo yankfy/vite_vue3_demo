@@ -3,9 +3,9 @@
     <el-breadcrumb-item v-for="(item, index) in levelList" :key="item.path">
       <!-- 面包屑导航最后一个是不可点击的 因为最后一个正是当前所显示的路由 -->
       <span v-if="index == levelList.length - 1" class="no-redirect">
-                {{ item.meta.title }}
+                {{ item?.meta?.title }}
             </span>
-      <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
+      <a v-else @click.prevent="handleLink(item)">{{ item?.meta?.title }}</a>
     </el-breadcrumb-item>
   </el-breadcrumb>
 </template>

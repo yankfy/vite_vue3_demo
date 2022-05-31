@@ -32,7 +32,7 @@ const app: Module<IAppState, IRootState> = {
     namespaced: true,
     state: {
         sidebar: { // 定义sidebar相关状态
-            opened: true // 菜单导航展开时true 收缩时false
+            opened: false // 菜单导航展开时true 收缩时false
         }
     },
     mutations,
