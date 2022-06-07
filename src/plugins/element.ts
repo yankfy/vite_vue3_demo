@@ -45,11 +45,11 @@ export default (app: App): void => {
         app.use(component)
     })
 
-    for (const iconName in ElIconModules) {
+    for (const IconName in ElIconModules) {
         // 判断对象有没有属性
-        if (Reflect.has(ElIconModules, iconName)) {
-            const item = ElIconModules[iconName]
-            app.component(iconName, item)
+        if (Reflect.has(ElIconModules, IconName)) {
+            const item = ElIconModules[IconName]
+            app.component(IconName, item)
         }
     }
 

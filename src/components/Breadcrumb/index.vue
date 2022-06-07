@@ -37,6 +37,7 @@ const getBreadcrumb = () => {
   let matched = route.matched.filter((item) => item.meta && item.meta.title) as PartialRouteLocationMatched[];
   // 获取第一个匹配路由记录
   const first = matched[0];
+
   // 我们要把dashboard作为首页 始终固定在面包屑导航第一个 Dashboard/System/Menu Management
   // 如果第一个匹配到的路由记录不是dashboard 我们自己就把它放在记录数组的第一项
   if (!isDashboard(first)) {
@@ -51,6 +52,7 @@ const getBreadcrumb = () => {
         ] as PartialRouteLocationMatched[]
     ).concat(matched);
   }
+  
   // route.meta.breadcrumb自定义属性 如果为false 匹配到时 将不会再面包屑导航显示该路由
   // {
   //  path: 'menu',

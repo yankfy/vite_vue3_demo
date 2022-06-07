@@ -21,6 +21,6 @@ const sayHi = () => {
 <style lang="scss">
 .custom-class { // 自定义样式404
   font-size: 200px;
-  color: green;
+  color: #cccccc;
 }
 </style>
