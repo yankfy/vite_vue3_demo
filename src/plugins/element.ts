@@ -4,12 +4,17 @@ import ElementPlus, {
     ElBreadcrumbItem,
     ElButton,
     ElCol,
+    ElDropdown,
+    ElDropdownItem,
+    ElDropdownMenu,
     ElIcon,
     ElMenu,
     ElMessage,
     ElMessageBox,
     ElNotification,
     ElSubMenu,
+    ElTooltip,
+    ElConfigProvider,
 } from "element-plus";
 import * as ElIconModules from "@element-plus/icons-vue";
 import "element-plus/dist/index.css";
@@ -20,9 +25,14 @@ import zhCn from "element-plus/es/locale/lang/zh-cn";
 import "dayjs/locale/zh-cn";
 
 // $ELEMENT size属性类型
-export type Size = "default" | "medium" | "small" | "mini";
+export type Size = "default" | "large" | "small" | "";
 
-export default function install(app: App): void {
+interface ElementOptions {
+    size: Size,
+}
+
+export default function install(app: App,options:ElementOptions): void {
+
     // app.use(ElementPlus, {
     //     locale: zhCn
     // })
@@ -38,6 +48,11 @@ export default function install(app: App): void {
         ElCol,
         ElBreadcrumb,
         ElBreadcrumbItem,
+        ElTooltip,
+        ElDropdown,
+        ElDropdownMenu,
+        ElDropdownItem,
+        ElConfigProvider
     ];
 
     components.forEach((component) => {
@@ -65,8 +80,10 @@ export default function install(app: App): void {
     // element-plus全局配置
     // 说明文档：https://element-plus.gitee.io/#/zh-CN/component/quickstart#quan-ju-pei-zhi
     // 该对象目前支持 size 与 zIndex 字段。size 用于改变组件的默认尺寸 small，zIndex 设置弹框的初始 z-index（默认值：2000）。
+    console.log(options.size);
+    
     app.config.globalProperties.$ELEMENT = {
-        size: "medium",
+        size: options.size,
         // zIndex: 2000 弹框zIndex默认值：2000
     };
 }

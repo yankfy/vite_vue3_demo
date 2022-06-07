@@ -15,8 +15,12 @@ import GlobalComponents from '@/components/GlobalComponents'
 import 'virtual:svg-icons-register'
 
 const app = createApp(App);
+// 获取 store 里存储的size
+const size = store.state.app.size
 // app.use(ElementPlus)
-app.use(installElementPlus)
+app.use(installElementPlus,{
+    size
+})
 app.use(router)
 app.use(store, key)
 app.use(GlobalComponents)

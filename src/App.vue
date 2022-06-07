@@ -2,12 +2,18 @@
   <!--<img alt="Vue logo" src="./assets/logo.png"/>-->
   <!--<HelloWorld msg="Hello Vue 3 + Vite"/>-->
   <div id="app">
-    <router-view></router-view>
+    <el-config-provider :size="size">
+      <router-view></router-view>
+    </el-config-provider>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue';
+import { useStore } from './store';
 
+const store = useStore()
+const size = computed(() => store.getters.size)
 </script>
 
 <style>

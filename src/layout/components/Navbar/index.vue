@@ -1,10 +1,17 @@
 <template>
   <div class="navbar-header">
-    <Hamburger @toggleClick="toggleSidebar" :is-active="sidebar.opened"/>
-    <Breadcrumb/>
+    <Hamburger @toggleClick="toggleSidebar"
+      :is-active="sidebar.opened" />
+    <Breadcrumb />
     <div class="right-menu">
       <!-- 全屏组件 -->
-      <Screenfull id="screenfull" class="right-menu-item hover-effect"/>
+      <Screenfull id="screenfull"
+        class="right-menu-item hover-effect" />
+      <!-- <el-tooltip content="Global Size"
+        effect="dark"
+        placement="bottom"> -->
+        <SizeSelect class="right-menu-item hover-effect"></SizeSelect>
+      <!-- </el-tooltip> -->
     </div>
   </div>
 </template>
@@ -28,14 +35,29 @@ const sidebar = computed(() => store.getters.sidebar)
 
 <style lang="scss" scoped>
 .navbar-header {
+  display: flex;
+  width: 100%;
+
+  .right-menu {
+    flex: 1;
     display: flex;
-    width: 100%;
-    .right-menu {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding-right: 15px;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 15px;
+    &-item{
+      padding: 0 8px;
+        font-size: 18px;
+        color: #5a5e66;
+        vertical-align: text-bottom;
+        &.hover-effect {
+          cursor: pointer;
+          transition: background .3s;
+
+          &:hover {
+            background: rgba(0, 0, 0, .025);
+          }
+        }
     }
   }
+}
 </style>
