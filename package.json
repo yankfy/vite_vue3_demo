@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^1.1.4",
+    "@types/vue-router": "^2.0.0",
     "@vue/runtime-core": "^3.2.31",
     "axios": "^0.26.1",
     "dayjs": "^1.11.0",

@@ -137,7 +137,9 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "shims-vue.d.ts",
+    "shims-tsx.d.ts"
   ],
   "references": [
     {
