@@ -15,6 +15,7 @@ import ElementPlus, {
     ElSubMenu,
     ElTooltip,
     ElConfigProvider,
+    ElAvatar
 } from "element-plus";
 import * as ElIconModules from "@element-plus/icons-vue";
 import "element-plus/dist/index.css";
@@ -52,7 +53,8 @@ export default function install(app: App,options:ElementOptions): void {
         ElDropdown,
         ElDropdownMenu,
         ElDropdownItem,
-        ElConfigProvider
+        ElConfigProvider,
+        ElAvatar
     ];
 
     components.forEach((component) => {

@@ -12,6 +12,7 @@
         placement="bottom"> -->
         <SizeSelect class="right-menu-item hover-effect"></SizeSelect>
       <!-- </el-tooltip> -->
+        <Avatar></Avatar>
     </div>
   </div>
 </template>
@@ -22,6 +23,7 @@ import Breadcrumb from '@/components/Breadcrumb/index.vue'
 import Hamburger from '@/components/Hamburger/index.vue'
 import { useStore } from "@/store";
 import Screenfull from "@/components/Screenfull/index.vue";
+import Avatar from "@/layout/components/Avatar/index.vue";
 
 const store = useStore();
 const toggleSidebar = () => {
